@@ -18,6 +18,9 @@
                       <hr>
 
                       <a href="/admin/categories" class="fs-4 text-decoration-none text-black">Categories</a>
+                      <hr>
+
+                      <a href="/admin/products/" class="fs-4 text-decoration-none text-black">Products</a>
                     </div>
                 </div>
 
@@ -34,5 +37,4 @@
 </template>
 
 <script setup>
-  import { Link } from '@inertiajs/vue3';
 </script>

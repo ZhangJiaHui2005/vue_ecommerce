@@ -21,7 +21,7 @@ defineOptions({ layout: AdminLayout });
             <Link href="/admin/categories/create" class="btn btn-dark">Create new category</Link>
         </div>
 
-        <div>
+        <div class="container-fluid">
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
@@ -37,7 +37,7 @@ defineOptions({ layout: AdminLayout });
                         </td>
 
                         <td>
-                            Actions
+                            actions
                         </td>
                     </tr>
                 </thead>

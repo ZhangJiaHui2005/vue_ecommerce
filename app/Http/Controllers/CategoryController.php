@@ -39,7 +39,7 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $category->update($request->validate([
             'name' => ['required', 'max:255', 'unique:categories'],
-            'description' => ['max:1000']
+            'description' => ['required' ,'max:1000']
         ]));
 
         return to_route('categories.index');

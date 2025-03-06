@@ -40,7 +40,7 @@ function submit() {
                 </div>
 
                 <div>
-                    <button type="submit" class="btn btn-primary w-100">Add</button>
+                    <button type="submit" class="btn btn-dark w-100">Add</button>
                 </div>
             </form>
         </div>
