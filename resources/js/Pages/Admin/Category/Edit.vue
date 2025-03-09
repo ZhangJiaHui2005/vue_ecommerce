@@ -18,12 +18,12 @@ const form = reactive({
 
 <template>
     <div>
-        <div class="d-flex justify-content-center align-items-center mx-5">
-            <h1>Update {{ category.name }}</h1>
+        <div class="my-5">
+            <h1 class="text-center">Update {{ category.name }}</h1>
         </div>
 
         <div>
-            <form @submit.prevent="router.put(route('categories.update', { id: category.id }), form)">
+            <form @submit.prevent="router.put(route('categories.update', { id: category.id }), form)" class="w-100">
                 <div class="mb-3">
                     <label for="name" class=" form-label">Name:</label>
                     <input type="text" v-model="form.name" class="form-control">

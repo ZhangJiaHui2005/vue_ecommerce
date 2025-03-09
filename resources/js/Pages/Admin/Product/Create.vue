@@ -1,11 +1,11 @@
 <template>
     <div>
-        <div class="d-flex justify-content-center align-items-center my-5">
-            <h1>Create new product</h1>
+        <div class="my-5">
+            <h1 class="text-center">Create new product</h1>
         </div>
 
         <div>
-            <form @submit.prevent="submit">
+            <form @submit.prevent="submit" class="w-100">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name:</label>
                     <input type="text" class="form-control" v-model="form.name">
