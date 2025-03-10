@@ -21,7 +21,17 @@
                 <span v-if="errors.password" class="text-danger">{{ errors.password }}</span>
             </div>
 
-            <button type="submit" class="btn btn-dark w-100">Register</button>
+            <div class="mb-3">
+                <label for="password_confirmation">Confirmed Password:</label>
+                <input type="password" class="form-control" v-model="form.password_confirmation">
+                <span v-if="errors.password_confirmation" class="text-danger">{{ errors.password_confirmation }}</span>
+            </div>
+
+            <button type="submit" class="btn btn-dark w-100 mb-3">Register</button>
+
+            <div>
+                <p>Already have an account? <Link href="/login" class="text-dark">Login</Link></p>
+            </div>
         </form>
     </div>
 </template>
@@ -29,6 +39,7 @@
 <script setup>
 import { reactive } from 'vue';
 import { router } from '@inertiajs/vue3';
+import { Link } from '@inertiajs/vue3';
 
     defineProps({
         errors: Object
@@ -37,7 +48,8 @@ import { router } from '@inertiajs/vue3';
     const form = reactive({
         name: null,
         email: null,
-        password: null
+        password: null,
+        password_confirmation: null
     })
 
     function submit() {

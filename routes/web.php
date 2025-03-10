@@ -4,6 +4,9 @@ use App\Http\Controllers\Auth\Admin\LoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\Admin\RegisterController;
+use App\Models\Category;
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -13,7 +16,15 @@ Route::get('/', function () {
 
 Route::prefix('admin')->group(function () {
     Route::get('/', function () {
-        return Inertia::render('Admin/Dashboard');
+        $categories_quantity = Category::count();
+        $products_quantity = Product::count();
+        $users_quantity = User::count();
+
+        return Inertia::render('Admin/Dashboard', [
+            'categories_quantity' => $categories_quantity,
+            'products_quantity' => $products_quantity,
+            'users_quantity' => $users_quantity
+        ]);
     })->name('admin.dashboard')->middleware('auth');
 
     Route::middleware('auth')->group(function () {

@@ -21,7 +21,11 @@
                 <span v-if="errors.password" class="text-danger">{{ errors.password }}</span>
             </div>
 
-            <button type="submit" class="btn btn-dark w-100">Login</button>
+            <button type="submit" class="btn btn-dark w-100 mb-3">Login</button>
+
+            <div>
+                <p>Don't have an account? <Link href="/register" class="text-dark">Register</Link></p>
+            </div>
         </form>
     </div>
 </template>
@@ -29,6 +33,7 @@
 <script setup>
 import { reactive } from 'vue';
 import { router } from '@inertiajs/vue3';
+import { Link } from '@inertiajs/vue3';
 
     defineProps({
         errors: Object

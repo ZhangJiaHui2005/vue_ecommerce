@@ -15,12 +15,14 @@ class RegisterController extends Controller
 
     public function store(Request $request) {
         $validated = $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required'
+            'name' => 'required|unique:users',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|confirmed'
         ]);
 
-        $user = User::create($validated);
+        User::create($validated);
+
+        $request->session()->regenerate();
 
         return to_route('admin.dashboard');
     }
