@@ -26,7 +26,7 @@ function submit() {
         </div>
 
         <div>
-            <form @submit.prevent="submit">
+            <form @submit.prevent="submit" class="w-100">
                 <div class="mb-3">
                     <label for="name" class=" form-label">Name:</label>
                     <input type="text" v-model="form.name" class="form-control">

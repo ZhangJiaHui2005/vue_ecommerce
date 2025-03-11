@@ -19,6 +19,7 @@
                 <label for="password">Password:</label>
                 <input type="password" class="form-control" v-model="form.password">
                 <span v-if="errors.password" class="text-danger">{{ errors.password }}</span>
+                <span v-if="errors.credentials" class="text-danger">{{ errors.credentials }}</span>
             </div>
 
             <button type="submit" class="btn btn-dark w-100 mb-3">Login</button>

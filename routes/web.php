@@ -20,10 +20,13 @@ Route::prefix('admin')->group(function () {
         $products_quantity = Product::count();
         $users_quantity = User::count();
 
+        $categories = Category::withCount('products')->get();
+
         return Inertia::render('Admin/Dashboard', [
             'categories_quantity' => $categories_quantity,
             'products_quantity' => $products_quantity,
-            'users_quantity' => $users_quantity
+            'users_quantity' => $users_quantity,
+            'categories' => $categories
         ]);
     })->name('admin.dashboard')->middleware('auth');
 
