@@ -31,4 +31,14 @@ class LoginController extends Controller
             'credentials' => 'Sorry!!! Invalid credentials'
         ]);
     }
+
+    public function logout(Request $request) {
+        FacadesAuth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->route('home');
+    }
 }

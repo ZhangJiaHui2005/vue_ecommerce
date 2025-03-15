@@ -11,7 +11,19 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    return Inertia::render('Home');
+    $products = Product::with('category')->get();
+
+    return Inertia::render('Client/Home', [
+        'products' => $products
+    ]);
+})->name('home');
+
+Route::get('/product/{id}', function ($id) {
+    $product = Product::with('category')->find($id);
+
+    return Inertia::render('Client/Details', [
+        'product' => $product
+    ]);
 });
 
 Route::prefix('admin')->group(function () {
@@ -57,3 +69,4 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store'])->name('login.store');
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
