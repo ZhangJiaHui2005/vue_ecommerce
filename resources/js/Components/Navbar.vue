@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar navbar-expand-lg container">
         <div class="container-fluid">
-            <a class="navbar-brand text-white" href="#">Electronics Store</a>
+            <Link class="navbar-brand text-white" href="/">Electronics Store</Link>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon text-white"></span>
@@ -9,10 +9,10 @@
             <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link text-white" aria-current="page" href="#">Home</a>
+                        <Link class="nav-link text-white" aria-current="page" href="/">Home</Link>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Features</a>
+                        <Link href="/products" class="nav-link text-white">Products</Link>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Pricing</a>

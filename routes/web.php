@@ -11,12 +11,51 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    $products = Product::with('category')->get();
+    $products = Product::with('category')->get()->take(6);
+    $laptops = Product::whereHas('category', function ($query) {
+        $query->where('name', 'Laptop');
+    })->with('category')->get()->take(6);
+
 
     return Inertia::render('Client/Home', [
-        'products' => $products
+        'products' => $products,
+        'laptops' => $laptops
     ]);
 })->name('home');
+
+Route::get('/products', function () {
+    $products = Product::with('category')->get();
+    $categories = Category::all();
+
+    return Inertia::render('Client/Products', [
+        'products' => $products,
+        'categories' => $categories
+    ]);
+});
+
+Route::get('/Laptop', function () {
+    $laptops = Product::whereHas('category', function ($query) {
+        $query->where('name', 'Laptop');
+    })->with('category')->get();
+    $categories = Category::all();
+
+    return Inertia::render('Client/Laptops', [
+        'laptops' => $laptops,
+        'categories' => $categories
+    ]);
+});
+
+Route::get('/Smartphone', function () {
+    $smartphones = Product::whereHas('category', function ($query) {
+        $query->where('name', 'Smartphone');
+    })->with('category')->get();
+    $categories = Category::all();
+
+    return Inertia::render('Client/Smartphones', [
+        'smartphones' => $smartphones,
+        'categories' => $categories
+    ]);
+});
 
 Route::get('/product/{id}', function ($id) {
     $product = Product::with('category')->find($id);

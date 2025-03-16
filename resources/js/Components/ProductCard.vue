@@ -10,7 +10,7 @@
                 <span class="badge text-bg-dark">{{ category }}</span>
             </div>
 
-            <div class="row">
+            <div class="row gy-3">
                 <div class="col-md-9">
                     <Link :href="`/product/${id}`" class="btn btn-dark w-100">Details</Link>
                 </div>
